@@ -32,6 +32,10 @@ copy "%TargetPath%" "$(SolutionDir)\build\%TargetFileName%.debugTask"
     <OutputType>Exe</OutputType>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
   <ItemGroup>
     <None Remove="MrAdvice.Weaver.csproj.DotSettings" />
   </ItemGroup>
@@ -39,7 +43,11 @@ copy "%TargetPath%" "$(SolutionDir)\build\%TargetFileName%.debugTask"
     <Compile Include="..\MrAdvice\Introduction\IntroductionRules.cs" Link="IntroductionRules.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="StitcherBoy" Version="1.2.0" />
+    <PackageReference Include="Blobber" Version="0.9.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="StitcherBoy" Version="1.3.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MrAdvice\MrAdvice.csproj" />
