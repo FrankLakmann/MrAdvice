@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net40;netstandard2.0</TargetFrameworks>
+    <SignAssembly>true</SignAssembly>
+    <PackageId>MrAdvice.Library</PackageId>
+    <Version>2.0</Version>
+    <Company>Arx One</Company>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/ArxOne/MrAdvice/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/ArxOne/MrAdvice</PackageProjectUrl>
+    <PackageIconUrl>https://github.com/ArxOne/MrAdvice/blob/master/Icon/MrAdvice.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/ArxOne/MrAdvice.git</RepositoryUrl>
+    <Copyright>MIT license</Copyright>
+    <Description>MrAdvice allows to weave aspects at build-time (just like PostSharp, but free as in free beer). Write your own aspects in the form of attributes and apply them to target methods or properties. This version does not require any dependency (on the opposite of MrAdvice.Fody which requires Fody).</Description>
+    <RepositoryType>git</RepositoryType>
+    <Product>Mr. Advice</Product>
+    <Authors>Arx One</Authors>
+    <AssemblyName>MrAdvice</AssemblyName>
+    <AssemblyOriginatorKeyFile>MrAdvice.snk</AssemblyOriginatorKeyFile>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <RootNamespace>ArxOne.MrAdvice</RootNamespace>
+  </PropertyGroup>
+</Project>

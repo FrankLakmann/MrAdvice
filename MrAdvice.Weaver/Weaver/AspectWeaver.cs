@@ -9,6 +9,7 @@ namespace ArxOne.MrAdvice.Weaver
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Reflection;
     using System.Runtime.CompilerServices;
     using System.Runtime.Versioning;
     using Advice;
@@ -16,7 +17,6 @@ namespace ArxOne.MrAdvice.Weaver
     using dnlib.DotNet;
     using dnlib.DotNet.Emit;
     using Introduction;
-    using Properties;
     using Reflection;
     using Reflection.Groups;
     using StitcherBoy.Logging;
@@ -110,8 +110,9 @@ namespace ArxOne.MrAdvice.Weaver
                     Logging.WriteDebug("{0} : {1}ms", reportPart.Key.PadRight(maxLength), (int)reportPart.Value.TotalMilliseconds);
                 Logging.WriteDebug("--------------------------------------");
 
+                var productVersion = GetType().Assembly.GetCustomAttribute<AssemblyVersionAttribute>().Version;
                 Logging.Write("MrAdvice {3} weaved module '{0}' (targeting framework {2}) in {1}ms",
-                    moduleDefinition.Assembly.FullName, (int)report.Sum(r => r.Value.TotalMilliseconds), targetFramework.ToString(), Product.Version);
+                    moduleDefinition.Assembly.FullName, (int)report.Sum(r => r.Value.TotalMilliseconds), targetFramework.ToString(), productVersion);
 
                 return true;
             }
