@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ArxOne.MrAdvice</RootNamespace>
     <AssemblyName>MrAdvice.Weaver</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -70,6 +70,11 @@
     <Compile Include="Annotation\MarkerDefinition.cs" />
     <Compile Include="AuditTimer.cs" />
     <Compile Include="IO\DefaultLogging.cs" />
+    <Compile Include="MrAdvice.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MrAdvice.tt</DependentUpon>
+    </Compile>
     <Compile Include="Reflection\Groups\EventReflectionNode.cs" />
     <Compile Include="Utility\SequenceEqualityComparer.cs" />
     <Compile Include="Utility\TypeComparer.cs" />
@@ -115,12 +120,6 @@
     <Compile Include="Weaver\Instructions.cs" />
     <Compile Include="Utility\TypeReferenceExtensions.cs" />
     <Compile Include="Weaver\WeaverMethodWeavingContext.cs" />
-    <None Include="MrAdvice.nuspec">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MrAdvice.tt</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -135,7 +134,7 @@
     <None Include="MrAdvice.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <SubType>Designer</SubType>
-      <LastGenOutput>MrAdvice.nuspec</LastGenOutput>
+      <LastGenOutput>MrAdvice.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -20,12 +20,13 @@ namespace ArxOne.MrAdvice.Advice
         {
         }
 
-        /// <summary>
-        /// Proceeds to the next advice
-        /// </summary>
-        /// <remarks>On async methods, this method may return before the task completes. To wait for full completion, 
-        /// implement <see cref="IMethodAsyncAdvice"/> and use ProceedAsync() method</remarks>
-        [DebuggerStepThrough]
+		/// <summary>
+		/// Proceeds to the next advice
+		/// </summary>
+		/// <remarks>On async methods, this method may return before the task completes. To wait for full completion, 
+		/// implement <see cref="IMethodAsyncAdvice"/> and use ProceedAsync() method</remarks>
+		[DebuggerHidden]
+		[DebuggerStepThrough]
         public virtual void Proceed() => InvokeNext();
     }
 }

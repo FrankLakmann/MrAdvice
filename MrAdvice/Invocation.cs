@@ -11,7 +11,8 @@ namespace ArxOne.MrAdvice
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
+	using System.Diagnostics;
+	using System.Linq;
     using System.Reflection;
     using System.Threading.Tasks;
     using Advice;
@@ -36,42 +37,46 @@ namespace ArxOne.MrAdvice
 
         private static readonly AdviceInfo[] NoAdvice = new AdviceInfo[0];
 
-        /// <summary>
-        /// Runs a method interception.
-        /// This version is kept for compatibility, the new method to be colled is <see cref="ProceedAdvice2"/>
-        /// it will be easier from C# code
-        /// </summary>
-        /// <param name="target">The target.</param>
-        /// <param name="parameters">The parameters.</param>
-        /// <param name="methodHandle">The method handle.</param>
-        /// <param name="innerMethodHandle">The inner method handle.</param>
-        /// <param name="typeHandle">The type handle.</param>
-        /// <param name="abstractedTarget">if set to <c>true</c> [abstracted target].</param>
-        /// <param name="genericArguments">The generic arguments.</param>
-        /// <returns></returns>
-        public static object ProceedAdvice(object target, object[] parameters, RuntimeMethodHandle methodHandle,
+		/// <summary>
+		/// Runs a method interception.
+		/// This version is kept for compatibility, the new method to be colled is <see cref="ProceedAdvice2"/>
+		/// it will be easier from C# code
+		/// </summary>
+		/// <param name="target">The target.</param>
+		/// <param name="parameters">The parameters.</param>
+		/// <param name="methodHandle">The method handle.</param>
+		/// <param name="innerMethodHandle">The inner method handle.</param>
+		/// <param name="typeHandle">The type handle.</param>
+		/// <param name="abstractedTarget">if set to <c>true</c> [abstracted target].</param>
+		/// <param name="genericArguments">The generic arguments.</param>
+		/// <returns></returns>
+		[DebuggerHidden]
+		[DebuggerStepThrough]
+		public static object ProceedAdvice(object target, object[] parameters, RuntimeMethodHandle methodHandle,
             RuntimeMethodHandle innerMethodHandle, RuntimeTypeHandle typeHandle, bool abstractedTarget, Type[] genericArguments)
         {
             return ProceedAdvice2(target, parameters, methodHandle, innerMethodHandle, methodHandle, typeHandle, abstractedTarget, genericArguments);
         }
 
-        /// <summary>
-        /// Runs a method interception.
-        /// We use a static method here, if one day we want to reuse Invocations or change mecanism,
-        /// it will be easier from C# code
-        /// </summary>
-        /// <param name="target">The target.</param>
-        /// <param name="parameters">The parameters.</param>
-        /// <param name="methodHandle">The method handle.</param>
-        /// <param name="innerMethodHandle">The inner method handle.</param>
-        /// <param name="delegatableMethodHandle">The delegatable method handle.</param>
-        /// <param name="typeHandle">The type handle.</param>
-        /// <param name="abstractedTarget">if set to <c>true</c> [abstracted target].</param>
-        /// <param name="genericArguments">The generic arguments (to static type and/or method) in a single array.</param>
-        /// <returns></returns>
-        // ReSharper disable once UnusedMember.Global
-        // ReSharper disable once UnusedMethodReturnValue.Global
-        public static object ProceedAdvice2(object target, object[] parameters, RuntimeMethodHandle methodHandle, RuntimeMethodHandle innerMethodHandle,
+		/// <summary>
+		/// Runs a method interception.
+		/// We use a static method here, if one day we want to reuse Invocations or change mecanism,
+		/// it will be easier from C# code
+		/// </summary>
+		/// <param name="target">The target.</param>
+		/// <param name="parameters">The parameters.</param>
+		/// <param name="methodHandle">The method handle.</param>
+		/// <param name="innerMethodHandle">The inner method handle.</param>
+		/// <param name="delegatableMethodHandle">The delegatable method handle.</param>
+		/// <param name="typeHandle">The type handle.</param>
+		/// <param name="abstractedTarget">if set to <c>true</c> [abstracted target].</param>
+		/// <param name="genericArguments">The generic arguments (to static type and/or method) in a single array.</param>
+		/// <returns></returns>
+		// ReSharper disable once UnusedMember.Global
+		// ReSharper disable once UnusedMethodReturnValue.Global
+		[DebuggerHidden]
+		[DebuggerStepThrough]
+		public static object ProceedAdvice2(object target, object[] parameters, RuntimeMethodHandle methodHandle, RuntimeMethodHandle innerMethodHandle,
             RuntimeMethodHandle delegatableMethodHandle, RuntimeTypeHandle typeHandle, bool abstractedTarget, Type[] genericArguments)
         {
             var aspectInfo = GetAspectInfo(methodHandle, innerMethodHandle, delegatableMethodHandle, typeHandle, abstractedTarget, genericArguments);

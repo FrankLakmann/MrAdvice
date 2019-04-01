@@ -7,7 +7,8 @@
 namespace ArxOne.MrAdvice.Advice
 {
     using System;
-    using System.Threading.Tasks;
+	using System.Diagnostics;
+	using System.Threading.Tasks;
     using Threading;
 
     /// <summary>
@@ -64,11 +65,13 @@ namespace ArxOne.MrAdvice.Advice
             AdviceValues = adviceValues;
         }
 
-        /// <summary>
-        /// Invokes the next advice.
-        /// </summary>
-        /// <returns></returns>
-        protected Task InvokeNext() => _nextAdviceContext.Invoke();
+		/// <summary>
+		/// Invokes the next advice.
+		/// </summary>
+		/// <returns></returns>
+		[DebuggerHidden]
+		[DebuggerStepThrough]
+		protected Task InvokeNext() => _nextAdviceContext.Invoke();
 
         /// <summary>
         /// Invokes the current aspect (related to this instance).

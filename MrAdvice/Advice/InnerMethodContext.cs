@@ -7,7 +7,8 @@
 namespace ArxOne.MrAdvice.Advice
 {
     using System;
-    using System.Reflection;
+	using System.Diagnostics;
+	using System.Reflection;
     using System.Threading.Tasks;
     using global::MrAdvice.Advice;
     using Threading;
@@ -36,23 +37,25 @@ namespace ArxOne.MrAdvice.Advice
             _innerMethodDelegate = innerMethodDelegate;
         }
 
-        ///// <summary>
-        ///// Initializes a new instance of the <see cref="InnerMethodContext"/> class.
-        ///// </summary>
-        ///// <param name="target">The target.</param>
-        ///// <param name="targetType">Type of the target.</param>
-        ///// <param name="parameters">The parameters.</param>
-        ///// <param name="innerMethod">The inner method.</param>
-        //protected InnerMethodContext(object target, Type targetType, object[] parameters, MethodInfo innerMethod)
-        //    : this(new AdviceValues(target, targetType, parameters), innerMethod)
-        //{ }
+		///// <summary>
+		///// Initializes a new instance of the <see cref="InnerMethodContext"/> class.
+		///// </summary>
+		///// <param name="target">The target.</param>
+		///// <param name="targetType">Type of the target.</param>
+		///// <param name="parameters">The parameters.</param>
+		///// <param name="innerMethod">The inner method.</param>
+		//protected InnerMethodContext(object target, Type targetType, object[] parameters, MethodInfo innerMethod)
+		//    : this(new AdviceValues(target, targetType, parameters), innerMethod)
+		//{ }
 
-        /// <summary>
-        /// Invokes the current aspect (related to this instance).
-        /// Here, the inner method is called
-        /// </summary>
-        /// <exception cref="InvalidOperationException">context.Proceed() must not be called on advised interfaces (think about it, it does not make sense).</exception>
-        internal override Task Invoke()
+		/// <summary>
+		/// Invokes the current aspect (related to this instance).
+		/// Here, the inner method is called
+		/// </summary>
+		/// <exception cref="InvalidOperationException">context.Proceed() must not be called on advised interfaces (think about it, it does not make sense).</exception>
+		[DebuggerHidden]
+		[DebuggerStepThrough]
+		internal override Task Invoke()
         {
             if (_innerMethodDelegate != null)
             {

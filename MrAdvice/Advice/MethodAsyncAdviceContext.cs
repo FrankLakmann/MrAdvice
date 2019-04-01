@@ -127,16 +127,19 @@
             : this(methodAdvice, targetMethod, new AdviceValues(target, targetType, parameters), nextAdviceContext)
         { }
 
-        /// <summary>
-        /// Proceeds to the next advice, asynchronously
-        /// </summary>
-        [DebuggerStepThrough]
-        public virtual Task ProceedAsync() => InvokeNext() ?? Tasks.Void();
+		/// <summary>
+		/// Proceeds to the next advice, asynchronously
+		/// </summary>
+		[DebuggerHidden]
+		[DebuggerStepThrough]
+		public virtual Task ProceedAsync() => InvokeNext() ?? Tasks.Void();
 
-        /// <summary>
-        /// Invokes the current aspect (related to this instance).
-        /// </summary>
-        internal override Task Invoke()
+		/// <summary>
+		/// Invokes the current aspect (related to this instance).
+		/// </summary>
+		[DebuggerHidden]
+		[DebuggerStepThrough]
+		internal override Task Invoke()
         {
             return _methodAdvice.Advise(this);
         }

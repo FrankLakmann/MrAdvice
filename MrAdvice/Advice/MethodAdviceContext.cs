@@ -131,10 +131,12 @@ namespace ArxOne.MrAdvice.Advice
         { }
 
 
-        /// <summary>
-        /// Invokes the current aspect (related to this instance).
-        /// </summary>
-        internal override Task Invoke()
+		/// <summary>
+		/// Invokes the current aspect (related to this instance).
+		/// </summary>
+		[DebuggerHidden]
+		[DebuggerStepThrough]
+		internal override Task Invoke()
         {
             _methodAdvice.Advise(this);
             return null;

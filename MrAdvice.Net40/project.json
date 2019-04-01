@@ -1,7 +1,7 @@
 ﻿{
   "dependencies": {},
   "frameworks": {
-    "net40-client": {}
+    "net462": {}
   },
   "runtimes": {
     "win": {}
