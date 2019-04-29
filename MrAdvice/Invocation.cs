@@ -188,17 +188,21 @@ namespace ArxOne.MrAdvice
             return a.InnerException;
         }
 
-        /// <summary>
-        /// Gets the aspect information.
-        /// </summary>
-        /// <param name="methodHandle">The method handle.</param>
-        /// <param name="innerMethodHandle">The inner method handle.</param>
-        /// <param name="delegatableMethodHandle">The delegatable method handle.</param>
-        /// <param name="typeHandle">The type handle.</param>
-        /// <param name="abstractedTarget">if set to <c>true</c> [abstracted target].</param>
-        /// <param name="genericArguments">The generic arguments.</param>
-        /// <returns></returns>
-        private static AspectInfo GetAspectInfo(RuntimeMethodHandle methodHandle, RuntimeMethodHandle innerMethodHandle,
+
+
+		/// <summary>
+		/// Gets the aspect information.
+		/// </summary>
+		/// <param name="methodHandle">The method handle.</param>
+		/// <param name="innerMethodHandle">The inner method handle.</param>
+		/// <param name="delegatableMethodHandle">The delegatable method handle.</param>
+		/// <param name="typeHandle">The type handle.</param>
+		/// <param name="abstractedTarget">if set to <c>true</c> [abstracted target].</param>
+		/// <param name="genericArguments">The generic arguments.</param>
+		/// <returns></returns>
+		[DebuggerHidden]
+		[DebuggerStepThrough]
+		private static AspectInfo GetAspectInfo(RuntimeMethodHandle methodHandle, RuntimeMethodHandle innerMethodHandle,
             RuntimeMethodHandle delegatableMethodHandle, RuntimeTypeHandle typeHandle, bool abstractedTarget, Type[] genericArguments)
         {
             AspectInfo aspectInfo;
